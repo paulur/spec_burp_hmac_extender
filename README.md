@@ -40,6 +40,7 @@ IV. Example
 There are two example Updater clasess in this package: DemoURLUpdater and DemoRequestHeaderUpdater. DemoURLUpdater will append the hmac signature to the URL; DemoRequestHeaderUpdater will update the Authentication header with the new hmac signature. To use these examples, you just simply change the configuration file.
 
 1. DemoURLUpdater
+
 	1.1 Add to the configuration file the following entry:
 		<updater>
 			<service-base-url>https://google.com:443/</service-base-url>
@@ -50,12 +51,17 @@ There are two example Updater clasess in this package: DemoURLUpdater and DemoRe
 		</updater>
 		
 	1.2 Add the extender to Burp. 
+	
 	1.3 From the browser, send a request to https://google.com
+	
 	1.4 On burp, intercept the request and send the request to repeater
+	
 	1.5 On repeater, send the request out
+	
 	1.6 On logger, find the request sent out from extender
 
 2. DemoURLUpdater
+
 	2.1 Add to the configuration file the following entry
 		<updater>
 			<service-base-url>https://google.com:443/</service-base-url>
@@ -65,13 +71,20 @@ There are two example Updater clasess in this package: DemoURLUpdater and DemoRe
 			<signature-place-holder>Authorization: hmac-v1 demo:$</signature-place-holder>	
 		</updater>
 		
-	2.2 Add the extender to Burp. 
+	2.2 Add the extender to Burp
+	
 	2.3 From the browser, send a request to https://google.com
+	
 	2.4 On burp, intercept the request and send the request to repeater
+	
 	2.5 On repeater, add two headers to the request as the following
+	
 	Authorization: hmac-v1 demo:zuKDafBvS0DSZ63s8MHjYOyp/8M=
+	
 	Date: Mon, 13 Oct 2014 13:27:40 CDT
+	
 	2.6 On repeater, send out the edited request
+	
 	2.7 On logger, find the request sent out from extender
 
 V. Misc
