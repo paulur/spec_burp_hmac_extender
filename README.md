@@ -7,6 +7,7 @@ Eeach application may have its own way to create hmac signature. Some applicatio
 II. Extension
 
 To create a new updater class for an application, pentester should follow the following steps:
+
 1. Create a new class in the package of spec.extender.hmac.updater 
 2. The new class should extends BaseUpdater, which is the base class in the template patten for implementing the Updater interface
 - Implement all the getters declared in Updater interface
@@ -23,7 +24,8 @@ To create a new updater class for an application, pentester should follow the fo
 III. Installation
 1. Export /src to a jar file.
 2. Add the jar file as an Burp extender. (See the screenshot of adding the extender in burp-extender.pdf). 
---Note there is a new tab named "Logger" in the second row of menu in Burp, after the extender is installed successfully, 
+--Note there is a new tab named "Logger" in the second row of menu in Burp, after the extender is installed successfully
+
 3. Put the update_config.xml file edited in the "Extension" section to the directory of the burp jar file (e.g., burpsuite_pro_v1.6.05.jar). For example, using the "dir" command on windows , it should look like
 08/27/2014  12:34 PM        12,890,423	burpsuite_pro_v1.6.05.jar
 08/27/2014  12:38 PM                47			suite.bat
