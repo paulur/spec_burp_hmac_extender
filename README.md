@@ -21,20 +21,27 @@ To create a new updater class for an application, pentester should follow the fo
 3. Update the updater_config.xml, following the instructions inside the configure file
 
 III. Installation
+
 1. Export /src to a jar file.
+
 2. Add the jar file as an Burp extender. (See the screenshot of adding the extender in burp-extender.pdf). 
 --Note there is a new tab named "Logger" in the second row of menu in Burp, after the extender is installed successfully
+
 3. Put the update_config.xml file edited in the "Extension" section to the directory of the burp jar file (e.g., burpsuite_pro_v1.6.05.jar). For example, using the "dir" command on windows , it should look like
 08/27/2014  12:34 PM        12,890,423	burpsuite_pro_v1.6.05.jar
 08/27/2014  12:38 PM                47			suite.bat
 10/08/2014  10:51 PM             2,410		updater_config.xml
+
 4. Lanuch either intruder or repeater on burp
+
 5. After the request is processed, click the "Logger" panel: observe those requests whose values are "Extender" under the "Tool" column, which are the edited requests using the Intruder's payload and having the recalculated hmac signatures.
 
 IV. Example
+
 There are two example Updater clasess in this package: DemoURLUpdater and DemoRequestHeaderUpdater. DemoURLUpdater will append the hmac signature to the URL; DemoRequestHeaderUpdater will update the Authentication header with the new hmac signature. To use these examples, you just simply change the configuration file.
 
 1. DemoURLUpdater
+
 1.1 Add to the configuration file the following entry:
 	<updater>
 		<service-base-url>https://google.com:443/</service-base-url>
@@ -43,14 +50,21 @@ There are two example Updater clasess in this package: DemoURLUpdater and DemoRe
 		<hmac-key>anSecretKey</hmac-key>
 		<signature-place-holder>NotUsedHolder$</signature-place-holder>	
 	</updater>
+	
 1.2 Add the extender to Burp. 
+
 1.3 From the browser, send a request to https://google.com
+
 1.4 On burp, intercept the request and send the request to repeater
+
 1.5 On repeater, send the request out
+
 1.6 On logger, find the request sent out from extender
 
 2. DemoURLUpdater
-2.1 Add to the configuration file the following entry:
+3. 
+2.1 Add to the configuration file the following entry
+
 	<updater>
 		<service-base-url>https://google.com:443/</service-base-url>
 		<updater-class>spec.extender.hmac.updater.DemoRequestHeaderUpdater</updater-class>
@@ -58,14 +72,25 @@ There are two example Updater clasess in this package: DemoURLUpdater and DemoRe
 		<hmac-key>anSecretKey</hmac-key>
 		<signature-place-holder>Authorization: hmac-v1 demo:$</signature-place-holder>	
 	</updater>
+	
 2.2 Add the extender to Burp. 
+
 2.3 From the browser, send a request to https://google.com
+
 2.4 On burp, intercept the request and send the request to repeater
+
 2.5 On repeater, add two headers to the request as the following
+
 Authorization: hmac-v1 demo:zuKDafBvS0DSZ63s8MHjYOyp/8M=
+
 Date: Mon, 13 Oct 2014 13:27:40 CDT
+
 2.6 On repeater, send out the edited request
+
 2.7 On logger, find the request sent out from extender
 
-V. Misc
+
+
+V. 
+
 To turn on/off the debug information, change the debugOn at line 8 in  spec.extender.util._debug class.
