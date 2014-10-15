@@ -18,19 +18,16 @@ To create a new updater class for an application, pentester should follow the fo
 - Implement the two abstract metods declared in BaseUpdater
 	protected abstract List<String> updateHeaders(List<String> headers, String requestBody);
 	protected abstract String updateBody(List<String> headers, String requestBody);
-
 3. Update the updater_config.xml, following the instructions inside the configure file
 
 III. Installation
 1. Export /src to a jar file.
 2. Add the jar file as an Burp extender. (See the screenshot of adding the extender in burp-extender.pdf). 
 --Note there is a new tab named "Logger" in the second row of menu in Burp, after the extender is installed successfully
-
 3. Put the update_config.xml file edited in the "Extension" section to the directory of the burp jar file (e.g., burpsuite_pro_v1.6.05.jar). For example, using the "dir" command on windows , it should look like
 08/27/2014  12:34 PM        12,890,423	burpsuite_pro_v1.6.05.jar
 08/27/2014  12:38 PM                47			suite.bat
 10/08/2014  10:51 PM             2,410		updater_config.xml
-
 4. Lanuch either intruder or repeater on burp
 5. After the request is processed, click the "Logger" panel: observe those requests whose values are "Extender" under the "Tool" column, which are the edited requests using the Intruder's payload and having the recalculated hmac signatures.
 
