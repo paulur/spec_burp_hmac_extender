@@ -1,0 +1,3 @@
+Authorization: hmac-v1 SHOPSEARSLITE:LzlZ+3cpOJdO8TYD4Q29BAEHdCQ=	
+Authorization: hmac-v1 CISP:EhE4QMRlQg1pnE0pbiWdlV6Zz4Q%3D	
+https://ssapp301p.dev.ch3.s.com:9643/cisp/v1/users/payments/update?sid=1001&ts=2014-07-30T20:42:07Z&sig=oPt7n9Jv0PWU5ucg54tswmJPRl4%3D

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hmac-updater>
+<!--
+	This configuration file specifies the required four attributes to invoke a specific hmac updater class:
+
+	1. service-base-url
+	The base URL  distinguishes a service/app. For example, if the url of an API  is demo.qa.com:8080/getUser/ID, the service-base-url is demo.qa.com:8080.
+
+	If the same domain and port number support multiple services/apps, for example,
+	the service appA is on demo.qa.com:8080/demo/appA, and the service appB is on demo.qa.com:8080/demo/appB,
+	the base URLfor appA is demo.qa.com:8080/demo/appA, and the base URL for LAS is demo.qa.com:8080/demo/appA.
+
+	Note: 
+		i. protocol (i.e., http or https), domain name, and port number are all required. 
+		ii .the port number can be found in Burp's reqeusts.
+
+	2. updater-class
+	The updater class specifies the full path of class that implements the logic of updating the hmac header.
+
+	3. client-id
+	Client ID specifies the ID of the service that sends in the hmac signature
+
+	4. signature-place-holder
+	Signature placeholder specifies the exact location of the hmac signaure and use $ at the location of hmac signature
+
+	For example, if the hmac signature is in the Authorization header as the following:
+	Authorization: hmac-v1 LzlZ+3cpOJdO8TYD4Q29BAEHdCQ=	
+	The place holder is thus  Authorization: hmac-v1 $
+
+	For another example,  if the hmac signature is in the Authorization header as the following:
+	Authorization: hmac-v1 ClientID:EhE4QMRlQg1pnE0pbiWdlV6Zz4Q%3D	something
+	The placeholder is	Authorization:hmac-v1 ClientID:$	something
+
+	Note:
+	The placeholder is a shortcut for implementing the update function. An Updater class can use other ways to update the hmac signature.
+	In case the placeholder is not used by an updater class, add a dummy value in this configuration attribute.
+
+	In case the placeholder is used, we recommend the $ sign replace exactly the original hmac value, if there is any space/tab in front or after the value, the space/tab should NOT be included in the place holder. For example, if the original header is "Authorization: hmac-v1	EhE4QMRlQg1pnE0pbiWdlV6Zz4Q%3D	something", where EhE4QMRlQg1pnE0pbiWdlV6Zz4Q%3D is the original hmac signature, and there a tab between "hmac-v1" and this signature and a space between this signature and "something", the value of the placeholder attribute is "Authorization: hmac-v1	$ something" where the tab and the space characters are kept.
+-->	
+	<!-- 
+	<updater>
+		<service-base-url>https://www.google.com:443</service-base-url>
+		<updater-class>spec.extender.hmac.updater.DemoURLUpdater</updater-class>
+		<client-id>1</client-id>
+		<hmac-key>aKey</hmac-key>
+		<signature-place-holder>NotUsedHolder$</signature-place-holder>	
+	</updater>
+	-->
+
+	<updater>
+		<service-base-url>https://www.google.com:443</service-base-url>
+		<updater-class>spec.extender.hmac.updater.DemoRequestHeaderUpdater</updater-class>
+		<client-id>2</client-id>
+		<hmac-key>anSecretKey</hmac-key>
+		<signature-place-holder>Authorization: hmac-v1 demo:$</signature-place-holder>	
+	</updater> 
+</hmac-updater>

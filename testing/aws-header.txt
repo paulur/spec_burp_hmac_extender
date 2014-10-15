@@ -1,0 +1,10 @@
+POST /helloworld HTTP/1.1
+Host: cib.us-east-1.amazonaws.com
+Accept-Encoding: identity
+Content-Length: 219
+Content-Encoding: amz-1.0
+User-Agent: aws-cli/1.4.4 Python/2.7.8 Linux/3.2.6
+X-Amz-Date: 20140927T010635Z
+X-Amz-Target: AWSCognitoIdentityService.UnlinkDeveloperIdentity
+Content-Type: application/x-amz-json-1.1
+Authorization: AWS4-HMAC-SHA256 Credential=AKIAJB4CDXCM47C3NGHQ/20140927/us-east-1/cognito-identity/aws4_request, SignedHeaders=content-encoding;content-type;host;user-agent;x-amz-date;x-amz-target, Signature=1b6ca90f92bfb75f7d1ddbcc3cd5c55c60047f6ef02991c710ce308e32d2801e
