@@ -1,1 +1,0 @@
-See Instruction.txt for details of this extender.
