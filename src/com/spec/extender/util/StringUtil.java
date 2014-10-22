@@ -1,4 +1,4 @@
-package spec.extender.util;
+package com.spec.extender.util;
 
 import java.util.Arrays;
 import java.util.Iterator;

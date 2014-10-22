@@ -1,4 +1,4 @@
-package spec.extender.hmac.updater;
+package com.spec.extender.hmac.updater;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,10 +14,10 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import spec.extender.CONST;
-import spec.extender.exception.ConfigParserException;
-import spec.extender.exception.HeaderUpdaterException;
-import spec.extender.util._debug;
+import com.spec.extender.CONST;
+import com.spec.extender.exception.ConfigParserException;
+import com.spec.extender.exception.HeaderUpdaterException;
+import com.spec.extender.util._debug;
 
 public class UpdaterFactory {	
 	private HashMap<String, Updater> updaterMap

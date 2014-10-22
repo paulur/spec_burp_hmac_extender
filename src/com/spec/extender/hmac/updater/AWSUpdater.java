@@ -1,4 +1,4 @@
-package spec.extender.hmac.updater;
+package com.spec.extender.hmac.updater;
 
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.SimpleTimeZone;
 import java.util.StringTokenizer;
 
-import spec.extender.exception.HeaderUpdaterException;
-import spec.extender.exception.UnimplementedException;
-import spec.extender.util.CryptUtil;
-import spec.extender.util._debug;
+import com.spec.extender.exception.HeaderUpdaterException;
+import com.spec.extender.exception.UnimplementedException;
+import com.spec.extender.util.CryptUtil;
+import com.spec.extender.util._debug;
 
 public class AWSUpdater extends BaseUpdater {	
 	final static String REGION		= "us-east-1";

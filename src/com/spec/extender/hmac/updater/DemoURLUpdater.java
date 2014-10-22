@@ -1,4 +1,4 @@
-package spec.extender.hmac.updater;
+package com.spec.extender.hmac.updater;
 
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
@@ -11,7 +11,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
 
-import spec.extender.util._debug;
+import com.spec.extender.util._debug;
 
 public class DemoURLUpdater extends BaseUpdater {
 	private String serviceBaseURL;

@@ -1,4 +1,4 @@
-package spec.extender.util;
+package com.spec.extender.util;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
@@ -10,8 +10,8 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
 
-import spec.extender.CONST;
-import spec.extender.exception.HeaderUpdaterException;
+import com.spec.extender.CONST;
+import com.spec.extender.exception.HeaderUpdaterException;
 
 public class CryptUtil {
 	public static String doSha256(String text)  {
@@ -61,8 +61,8 @@ public class CryptUtil {
 	public static String generateSHA1Hmac(String payload, String hmacKey) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException{
     	 byte[] data_bytes	= payload.getBytes("UTF8");
          byte[] key_bytes	= hmacKey.getBytes("UTF8");
-         SecretKeySpec key_spec = new SecretKeySpec(key_bytes, spec.extender.CONST.HMAC_SHA1_ALGORITHM);
-         Mac mac = Mac.getInstance(spec.extender.CONST.HMAC_SHA1_ALGORITHM);
+         SecretKeySpec key_spec = new SecretKeySpec(key_bytes, com.spec.extender.CONST.HMAC_SHA1_ALGORITHM);
+         Mac mac = Mac.getInstance(com.spec.extender.CONST.HMAC_SHA1_ALGORITHM);
          mac.init(key_spec);
          byte[] raw_hash = mac.doFinal(data_bytes);
 

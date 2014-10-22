@@ -1,4 +1,4 @@
-package spec.extender;
+package com.spec.extender;
 
 public interface CONST {
 	String CONFIG_FILE_NAME		= "updater_config.xml";

@@ -1,4 +1,4 @@
-package spec.extender.hmac.updater;
+package com.spec.extender.hmac.updater;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -6,8 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import spec.extender.CONST;
-import spec.extender.exception.ExtenderException;
+import com.spec.extender.CONST;
+import com.spec.extender.exception.ExtenderException;
 
 public abstract class BaseUpdater implements Updater {
 	protected abstract List<String> updateHeaders(List<String> headers, String requestBody);

@@ -1,4 +1,4 @@
-package spec.extender.hmac.updater;
+package com.spec.extender.hmac.updater;
 
 import java.util.List;
 

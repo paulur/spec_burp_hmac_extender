@@ -1,11 +1,11 @@
-package spec.extender.hmac.updater;
+package com.spec.extender.hmac.updater;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import spec.extender.util.CryptUtil;
+import com.spec.extender.util.CryptUtil;
 
 
 public class DemoRequestHeaderUpdater extends BaseUpdater {

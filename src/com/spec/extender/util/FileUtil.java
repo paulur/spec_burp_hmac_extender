@@ -1,4 +1,4 @@
-package spec.extender.util;
+package com.spec.extender.util;
 
 import java.io.BufferedWriter;
 import java.io.File;

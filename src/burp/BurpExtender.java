@@ -13,12 +13,12 @@ import javax.swing.SwingUtilities;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 
-import spec.extender.CONST;
-import spec.extender.exception.ExtenderException;
-import spec.extender.hmac.updater.UpdaterFactory;
-import spec.extender.hmac.updater.UpdaterPayload;
-import spec.extender.util.StringUtil;
-import spec.extender.util._debug;
+import com.spec.extender.CONST;
+import com.spec.extender.exception.ExtenderException;
+import com.spec.extender.hmac.updater.UpdaterFactory;
+import com.spec.extender.hmac.updater.UpdaterPayload;
+import com.spec.extender.util.StringUtil;
+import com.spec.extender.util._debug;
 
 public class BurpExtender extends AbstractTableModel implements IBurpExtender, ITab, IHttpListener, IMessageEditorController
 {
@@ -181,13 +181,13 @@ public class BurpExtender extends AbstractTableModel implements IBurpExtender, I
     @Override
     public int getColumnCount()
     {
-        return spec.extender.CONST.NUM_COL;
+        return com.spec.extender.CONST.NUM_COL;
     }
 
     @Override
     public String getColumnName(int colIndex)
     {
-    	return spec.extender.CONST.COL_NAME[colIndex];
+    	return com.spec.extender.CONST.COL_NAME[colIndex];
     }
 
     @Override

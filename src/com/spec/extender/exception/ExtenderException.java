@@ -1,4 +1,4 @@
-package spec.extender.exception;
+package com.spec.extender.exception;
 
 public class ExtenderException extends RuntimeException {
 
