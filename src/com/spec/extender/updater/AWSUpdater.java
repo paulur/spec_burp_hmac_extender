@@ -1,4 +1,4 @@
-package com.spec.extender.hmac.updater;
+package com.spec.extender.updater;
 
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;

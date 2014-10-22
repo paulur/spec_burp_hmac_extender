@@ -15,8 +15,8 @@ import javax.swing.table.TableModel;
 
 import com.spec.extender.CONST;
 import com.spec.extender.exception.ExtenderException;
-import com.spec.extender.hmac.updater.UpdaterFactory;
-import com.spec.extender.hmac.updater.UpdaterPayload;
+import com.spec.extender.updater.UpdaterFactory;
+import com.spec.extender.updater.UpdaterPayload;
 import com.spec.extender.util.StringUtil;
 import com.spec.extender.util._debug;
 
