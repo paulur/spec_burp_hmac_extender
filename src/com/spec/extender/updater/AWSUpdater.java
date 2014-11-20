@@ -96,7 +96,7 @@ public class AWSUpdater extends BaseUpdater {
 		String method					= methodCanonicalUQ[0].trim();
 		String canonicalURI				= methodCanonicalUQ[1].trim();
 		String canonicalQuery			= methodCanonicalUQ[2].trim();
-		String signedHeaders			= retrieveSignedHeaders(getAuthHeader(headers));
+		String signedHeaders			= retrieveSignedHeaders(retrieveAuthHeader(headers));
 		String canonicalHeaders			= buildCanonicalHeaders(signedHeaders, headers);
 		String payloadHash				= CryptUtil.doSha256(requestBody.trim());
 		
@@ -116,7 +116,7 @@ public class AWSUpdater extends BaseUpdater {
 		StringBuffer canonicalHeaders		= new StringBuffer();
 		
 		for (String signedHeader : signedHeaderList){
-			canonicalHeaders.append(signedHeader + ":" + getACaseInsensitiveHeader(headers, signedHeader) + "\n");
+			canonicalHeaders.append(signedHeader + ":" + retrieveCaseInsensitiveHeader(headers, signedHeader) + "\n");
 		}
 		
 		return canonicalHeaders.toString();
@@ -226,7 +226,7 @@ public class AWSUpdater extends BaseUpdater {
 
 	// X-Amz-Target: AWSCognitoIdentityService.CreateIdentityPool
 	public String retriveService(List<String> headers){
-		String xTargetHeader	= getAnHeader(headers, X_TARGET);
+		String xTargetHeader	= retrieveHeader(headers, X_TARGET);
 		String service			= xTargetHeader.substring(0, xTargetHeader.indexOf('.'));
 		
 		return service;

@@ -21,6 +21,7 @@ public interface CONST {
 	
 	/** encryption algorithm. */
 	String HMAC_SHA1_ALGORITHM 		= "HmacSHA1";
+	String HMAC_SHA256_ALGORITHM	= "HmacSHA256";
 	
 	
 	/**

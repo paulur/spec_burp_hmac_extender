@@ -59,15 +59,15 @@ public class CryptUtil {
 	}
 
 	public static String generateSHA1Hmac(String payload, String hmacKey) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException{
-    	 byte[] data_bytes	= payload.getBytes("UTF8");
-         byte[] key_bytes	= hmacKey.getBytes("UTF8");
-         SecretKeySpec key_spec = new SecretKeySpec(key_bytes, com.spec.extender.CONST.HMAC_SHA1_ALGORITHM);
-         Mac mac = Mac.getInstance(com.spec.extender.CONST.HMAC_SHA1_ALGORITHM);
-         mac.init(key_spec);
-         byte[] raw_hash = mac.doFinal(data_bytes);
-
-         Base64 base64 = new Base64();
-         String hmacDigest = new String(base64.encode(raw_hash));
+//    	 byte[] data_bytes	= payload.getBytes("UTF8");
+//         byte[] key_bytes	= hmacKey.getBytes("UTF8");
+//         SecretKeySpec key_spec = new SecretKeySpec(key_bytes, com.spec.extender.CONST.HMAC_SHA1_ALGORITHM);
+//         Mac mac = Mac.getInstance(com.spec.extender.CONST.HMAC_SHA1_ALGORITHM);
+//         mac.init(key_spec);
+//         byte[] raw_hash = mac.doFinal(data_bytes);
+//
+//         Base64 base64 = new Base64();
+//         String hmacDigest = new String(base64.encode(raw_hash));
          
 //         _debug.println("\n----------------------------------");
 //         _debug.println("\nValues to be used in SAL Request Headers\n");
@@ -75,7 +75,25 @@ public class CryptUtil {
 //         _debug.println("\nHMAC: " + hmacDigest);
 //         _debug.println("\n----------------------------------");
       
-         return hmacDigest;
+         return generateHmac(payload, hmacKey, CONST.HMAC_SHA1_ALGORITHM);
     }
+	
+	public static String generateSHA256Hamc(String payload, String hmacKey) throws InvalidKeyException, UnsupportedEncodingException, NoSuchAlgorithmException{
+		return generateHmac(payload, hmacKey, CONST.HMAC_SHA256_ALGORITHM);
+	}
+	
+	public static String generateHmac(String payload, String key, String algorithm) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException{
+		byte[] data_bytes	= payload.getBytes("UTF8");
+        byte[] key_bytes	= key.getBytes("UTF8");
+        SecretKeySpec key_spec = new SecretKeySpec(key_bytes, algorithm);
+        Mac mac = Mac.getInstance(algorithm);
+        mac.init(key_spec);
+        byte[] raw_hash = mac.doFinal(data_bytes);
+
+        Base64 base64 = new Base64();
+        String hmacDigest = new String(base64.encode(raw_hash));
+        
+        return hmacDigest;
+	}
 
 }

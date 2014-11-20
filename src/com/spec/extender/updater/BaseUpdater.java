@@ -115,16 +115,16 @@ public abstract class BaseUpdater implements Updater {
 	}
 	 */
 
-	protected String getAnHeader(List<String> headers, String HeaderName) {
+	protected String retrieveHeader(List<String> headers, String HeaderName) {
 		return getHeaderMap(headers).get(HeaderName);
 	}
 
-	protected String getACaseInsensitiveHeader(List<String> headers, String HeaderName) {
-		return getCaseInsensitiveHeaderMap(headers).get(HeaderName);
+	protected String retrieveCaseInsensitiveHeader(List<String> headers, String HeaderName) {
+		return retrieveCaseInsensitiveHeaderMap(headers).get(HeaderName.toLowerCase());
 	}
 
-	protected String getAuthHeader(List<String> headers) {
-		return getAnHeader(headers, CONST.AuthHeaderName);
+	protected String retrieveAuthHeader(List<String> headers) {
+		return retrieveHeader(headers, CONST.AuthHeaderName);
 	}
 
 	/**
@@ -133,7 +133,7 @@ public abstract class BaseUpdater implements Updater {
 	 * @param headers
 	 * @return
 	 */
-	protected HashMap<String, String> getCaseInsensitiveHeaderMap(
+	protected HashMap<String, String> retrieveCaseInsensitiveHeaderMap(
 			List<String> headers) {
 		HashMap<String, String> headerMap = new HashMap<String, String>();
 
