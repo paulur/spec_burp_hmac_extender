@@ -2,20 +2,20 @@ I. Introduction
 
 This application is an extender of Burp (http://portswigger.net/burp/). This Burp extender recalculates the hmac signature of an HTTP request when the request is edited on Burp (e.g., intruder or repeater). Details of the use-cases are described in the pdf file, burp-extender.pdf.
 
-Eeach application may have its own way to create hmac signature. Some applications may simply create the hmac signagure by using a timestamp and the request URL, some applications may create the signature using the URL and the request body, and others may have more complicated ways to generate the signature (e.g., AWS sig4 http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html). This extender provides the essential framework for penetration testers to implement their own solutions for a specific application. 
+Eeach application may have its own way to create hmac signature. Some applications may simply create the hmac signature by using a timestamp and the request URL, some applications may create the signature using the URL and the request body, and others may have more complicated ways to generate the signature (e.g., AWS sig4 http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html). This extender provides the essential framework for penetration testers to implement their own solutions for a specific application. 
 
 II. Extension
 
-To create a new updater class for an application, pentester should follow the following steps:
+To create a new updater class for an application, pen-tester should follow the following steps:
 
 1. Create a new class in the package of spec.extender.hmac.updater 
-2. The new class should extends BaseUpdater, which is the base class in the template patten for implementing the Updater interface
+2. The new class should extends BaseUpdater, which is the base class in the template pattern for implementing the Updater interface
 - Implement all the getters declared in Updater interface
 	public String getHmacKey();
 	public String getSignaturePlaceholder();
 	public String getServiceBaseURL();
 	public String getClientID();
-- Implement the two abstract metods declared in BaseUpdater
+- Implement the two abstract methods declared in BaseUpdater
 	protected abstract List<String> updateHeaders(List<String> headers, String requestBody);
 	protected abstract String updateBody(List<String> headers, String requestBody);
 3. Update the updater_config.xml, following the instructions inside the configure file

@@ -29,7 +29,10 @@ public class UpdaterFactory {
 		if (configFile == null) throw new ConfigParserException("No config file is found.");
 		init();
 	} 
-	public static void main(String args[]){}
+	public static void main(String args[]){
+		UpdaterFactory uf	= new UpdaterFactory();
+		uf.create("https://fourdos304p.dev.ch3.s.com:2043/efpipe/eventsqueue/1/efevents/v1");
+	}
 	
 	public Updater create(String requestURL){
 		Updater updater = null;

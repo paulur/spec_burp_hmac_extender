@@ -116,7 +116,7 @@ public class AWSUpdater extends BaseUpdater {
 		StringBuffer canonicalHeaders		= new StringBuffer();
 		
 		for (String signedHeader : signedHeaderList){
-			canonicalHeaders.append(signedHeader + ":" + getAnInsensitiveHeader(headers, signedHeader) + "\n");
+			canonicalHeaders.append(signedHeader + ":" + getACaseInsensitiveHeader(headers, signedHeader) + "\n");
 		}
 		
 		return canonicalHeaders.toString();

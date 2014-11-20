@@ -48,10 +48,10 @@
 	-->
 
 	<updater>
-		<service-base-url>https://www.google.com:443</service-base-url>
-		<updater-class>spec.extender.hmac.updater.DemoRequestHeaderUpdater</updater-class>
-		<client-id>2</client-id>
-		<hmac-key>anSecretKey</hmac-key>
-		<signature-place-holder>Authorization: hmac-v1 demo:$</signature-place-holder>	
+		<service-base-url>https://fourdos304p.dev.ch3.s.com:2043/efpipe/eventsqueue/1/efevents/v1</service-base-url>
+		<updater-class>com.spec.extender.updater.EcoUpdater</updater-class>
+		<client-id>ecofactor</client-id>
+		<hmac-key>6d7729650721244f77afbfb8a679e22bb81f29ef</hmac-key>
+		<signature-place-holder>Authorization: hmac-v1 ecofactor:$</signature-place-holder>	
 	</updater> 
 </hmac-updater>

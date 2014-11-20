@@ -8,6 +8,7 @@ import java.util.StringTokenizer;
 
 import com.spec.extender.CONST;
 import com.spec.extender.exception.ExtenderException;
+import com.spec.extender.util._debug;
 
 public abstract class BaseUpdater implements Updater {
 	protected abstract List<String> updateHeaders(List<String> headers, String requestBody);
@@ -118,8 +119,8 @@ public abstract class BaseUpdater implements Updater {
 		return getHeaderMap(headers).get(HeaderName);
 	}
 
-	protected String getAnInsensitiveHeader(List<String> headers, String HeaderName) {
-		return getInsensitiveHeaderMap(headers).get(HeaderName);
+	protected String getACaseInsensitiveHeader(List<String> headers, String HeaderName) {
+		return getCaseInsensitiveHeaderMap(headers).get(HeaderName);
 	}
 
 	protected String getAuthHeader(List<String> headers) {
@@ -132,7 +133,7 @@ public abstract class BaseUpdater implements Updater {
 	 * @param headers
 	 * @return
 	 */
-	protected HashMap<String, String> getInsensitiveHeaderMap(
+	protected HashMap<String, String> getCaseInsensitiveHeaderMap(
 			List<String> headers) {
 		HashMap<String, String> headerMap = new HashMap<String, String>();
 
@@ -190,6 +191,28 @@ public abstract class BaseUpdater implements Updater {
 		return methodUrlProtocol;
 	}
 
+	protected String[] getRequestMethodBaseUrlQueryString(String requestHeader){
+		String[] mup	 	= getRequestMethodUrlProtocol(requestHeader);
+		
+		_debug.println(mup[2]);
+		
+		String path			= mup[1];
+		int queryIndex		= path.indexOf('?');
+		String baseUrl		= null;
+		String queryString	= null;
+		if (queryIndex > 0){
+			baseUrl	= path.substring(0, queryIndex);
+			queryString	= path.substring(queryIndex+1, path.length());
+		}else{
+			baseUrl		= path;
+			queryString	= "";
+		}
+			
+		String[] mbq	= {mup[0], baseUrl, queryString};
+		
+		return mbq;
+	}
+	
 	protected void addHeader(List<String> headers, String newHeader) {
 		headers.add(newHeader);
 	}

@@ -15,11 +15,10 @@ public class DemoRequestHeaderUpdater extends BaseUpdater {
 	private String signaturePlaceholder;
 	
 	public DemoRequestHeaderUpdater(String _serviceBaseURL, String _clientID, String _hmacKey, String _signaturePlaceholder){
-		this.serviceBaseURL		= _serviceBaseURL;
-		this.clientID			= _clientID;
-		this.hmacKey			= _hmacKey;
-		this.signaturePlaceholder
-								= _signaturePlaceholder;
+		this.serviceBaseURL			= _serviceBaseURL;
+		this.clientID				= _clientID;
+		this.hmacKey				= _hmacKey;
+		this.signaturePlaceholder	= _signaturePlaceholder;
 	}
 	
 	public String getHmacKey() {
